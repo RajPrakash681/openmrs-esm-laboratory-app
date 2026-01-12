@@ -143,7 +143,7 @@ const OrdersDataTable: React.FC<OrdersDataTableProps> = (props) => {
         const labOrdersForPatient = labOrders.filter((order) => order.patient.uuid === patientUuid);
         const patient: Patient = labOrdersForPatient[0]?.patient;
         const flattenedLabOrdersForPatient = flattenedLabOrders.filter((order) => order.patientUuid === patientUuid);
-        
+
         const sortedFlattenedOrders = flattenedLabOrdersForPatient.sort((orderA, orderB) => {
           if (orderA.urgency === 'STAT' && orderB.urgency !== 'STAT') {
             return -1;
@@ -388,7 +388,7 @@ const OrdersDataTable: React.FC<OrdersDataTableProps> = (props) => {
               page={currentPage}
               pageSize={currentPageSize}
               pageSizes={pageSizes}
-              totalItems={groupedOrdersByPatient?.length}
+              totalItems={searchResults?.length}
               className={styles.pagination}
               onChange={({ pageSize, page }) => {
                 if (pageSize !== currentPageSize) setPageSize(pageSize);
